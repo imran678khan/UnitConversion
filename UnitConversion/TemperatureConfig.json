@@ -1,0 +1,17 @@
+{
+  "baseUnit": "celsius",
+  "units": [
+    {
+      "synonyms": [ "celsius", "Celsius", "°C", "°c" ],
+      "factor": 1
+    },
+    {
+      "synonyms": [ "fahrenheit", "Fahrenheit", "°F", "°f" ],
+      "factor": 1
+    },
+    {
+      "synonyms": [ "Kelvin", "kelvin", "°K", "°k" ],
+      "factor": 1
+    }
+  ]
+}

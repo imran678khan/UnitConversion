@@ -1,0 +1,41 @@
+{
+  "baseUnit": "m",
+  "units": [
+    {
+      "synonyms": [ "m", "metre" ],
+      "factor": 1
+    },
+    {
+      "synonyms": [ "km", "kilometre" ],
+      "factor": 0.001
+    },
+    {
+      "synonyms": [ "cm", "centimetre" ],
+      "factor": 100
+    },
+    {
+      "synonyms": [ "mm", "millimetre" ],
+      "factor": 1000
+    },
+    {
+      "synonyms": [ "ft", "foot", "feet" ],
+      "factor": 3.280839895
+    },
+    {
+      "synonyms": [ "yd", "yard" ],
+      "factor": 1.093613298
+    },
+    {
+      "synonyms": [ "mile" ],
+      "factor": 0.000620735
+    },
+    {
+      "synonyms": [ "in", "inch" ],
+      "factor": 39.37007874
+    },
+    {
+      "synonyms": [ "au" ],
+      "factor": 6.68449197861e-12
+    }
+  ]
+}

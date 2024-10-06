@@ -1,0 +1,37 @@
+{
+  "baseUnit": "kg",
+  "units": [
+    {
+      "synonyms": [ "kg", "kilogram" ],
+      "factor": 1
+    },
+    {
+      "synonyms": [ "gram", "g" ],
+      "factor": 1000
+    },
+    {
+      "synonyms": [ "lb", "lbs", "pound", "pounds" ],
+      "factor": 2.20462262185
+    },
+    {
+      "synonyms": [ "st", "stone" ],
+      "factor": 0.15747304442
+    },
+    {
+      "synonyms": [ "oz", "ounce" ],
+      "factor": 35.27396194958
+    },
+    {
+      "synonyms": [ "quintal" ],
+      "factor": 0.01
+    },
+    {
+      "synonyms": [ "short ton", "net ton", "us ton" ],
+      "factor": 0.00110231
+    },
+    {
+      "synonyms": [ "long ton", "weight ton", "gross ton", "imperial ton" ],
+      "factor": 0.000984207
+    }
+  ]
+}

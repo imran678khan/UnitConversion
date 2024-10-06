@@ -33,14 +33,18 @@ const TemperatureConversion: React.FC = () => {
     }
   }, []);
 
-  const handleValueChange = async (newValue: string) => {
+  const handleValueChange = async (
+    newValue: string,
+    fromUnit: string | null,
+    toUnit: string | null
+  ) => {
     setValueFrom(newValue);
 
     if (selectedFromUnit && selectedToUnit) {
       try {
         const requestBody = {
-          leftUnit: selectedFromUnit.name,
-          rightUnit: selectedToUnit.name,
+          leftUnit: fromUnit ?? selectedFromUnit.name,
+          rightUnit: toUnit ?? selectedToUnit.name,
           value: parseFloat(newValue),
           leftToRight: true, // Set to true or false based on the conversion direction
           conversionType: ConversionTypeEnum.Temperature, // Define your conversion type here
@@ -57,6 +61,17 @@ const TemperatureConversion: React.FC = () => {
       }
     }
   };
+  const handleDropdownChange = (
+    fromUnit: ConversionType | null,
+    toUnit: ConversionType | null
+  ) => {
+    // Call handleValueChange when both dropdown values are set
+    if (fromUnit && toUnit && valueFrom) {
+      console.log(fromUnit, toUnit);
+      handleValueChange(valueFrom, fromUnit.name, toUnit.name); // Call with the current input value
+    }
+  };
+
   const resultHtml =
     selectedFromUnit && selectedToUnit && valueFrom && valueTo ? (
       <div>
@@ -89,7 +104,11 @@ const TemperatureConversion: React.FC = () => {
             <span className="p-inputgroup-addon">From</span>
             <Dropdown
               value={selectedFromUnit}
-              onChange={(e) => setSelectedFromUnit(e.value)}
+              onChange={(e) => {
+                const newFromUnit = e.value;
+                setSelectedFromUnit(newFromUnit);
+                handleDropdownChange(newFromUnit, selectedToUnit); // Pass newFromUnit and current selectedToUnit
+              }}
               options={LengthConversionList}
               optionLabel="name"
               placeholder="Select Unit"
@@ -100,7 +119,11 @@ const TemperatureConversion: React.FC = () => {
             <span className="p-inputgroup-addon">To</span>
             <Dropdown
               value={selectedToUnit}
-              onChange={(e) => setSelectedToUnit(e.value)}
+              onChange={(e) => {
+                const newToUnit = e.value;
+                setSelectedToUnit(newToUnit);
+                handleDropdownChange(selectedFromUnit, newToUnit); // Pass current selectedFromUnit and newToUnit
+              }}
               options={LengthConversionList}
               optionLabel="name"
               placeholder="Select Unit"
@@ -115,7 +138,7 @@ const TemperatureConversion: React.FC = () => {
               name="ValueFrom"
               placeholder="Enter Value"
               value={valueFrom}
-              onChange={(e) => handleValueChange(e.target.value)}
+              onChange={(e) => handleValueChange(e.target.value, null, null)}
             />
           </div>
 
